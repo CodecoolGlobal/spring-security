@@ -1,8 +1,4 @@
-package com.raczkowski;
-
-import org.springframework.web.bind.annotation.ResponseStatus;
-
-import static org.springframework.http.HttpStatus.NOT_FOUND;
+package com.raczkowski.exception;
 
 public class ClientNotFoundException extends RuntimeException {
     public ClientNotFoundException(String id) {

@@ -11,6 +11,7 @@
 
     <bean name="przemek" class="com.raczkowski.Client">
         <constructor-arg ref="lloydAccount"/>
+        <property name="clientName" value="Przemek"/>
     </bean>
 
     <bean name="lloydAccount" class="com.raczkowski.BankAccount">

@@ -1,6 +1,6 @@
 package com.raczkowski.controller;
 
-import com.raczkowski.ClientNotFoundException;
+import com.raczkowski.exception.ClientNotFoundException;
 import com.raczkowski.model.Client;
 import com.raczkowski.service.BankClientService;
 import org.springframework.http.HttpStatus;

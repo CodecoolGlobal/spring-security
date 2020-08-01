@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ClientController {
@@ -36,9 +37,11 @@ public class ClientController {
 
     @GetMapping("/client")
     @ResponseBody
-    public Client getClient(@RequestParam(name = "id") String id) {
-        return clientService.getClient(Integer.parseInt(id))
-                .orElseThrow(() -> new ClientNotFoundException(id));
+    public Client getClient(@RequestParam(name = "id") Optional<String> id) {
+        String identity = id.orElseThrow(() -> new ClientNotFoundException("No id provided"));
+
+        return clientService.getClient(Integer.parseInt(identity))
+                .orElseThrow(() -> new ClientNotFoundException(identity));
     }
 
     @ExceptionHandler({ClientNotFoundException.class})

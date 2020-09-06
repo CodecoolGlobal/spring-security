@@ -2,7 +2,7 @@ package com.raczkowski;
 
 import org.springframework.stereotype.Component;
 
-
+@Component
 public class BankAccount {
 
     private final Bank bank;

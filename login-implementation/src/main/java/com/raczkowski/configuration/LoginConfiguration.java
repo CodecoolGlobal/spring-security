@@ -1,7 +1,6 @@
 package com.raczkowski.configuration;
 
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,7 +25,7 @@ public class LoginConfiguration extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean(name = "loginUserDetailsManager")
+    @Bean
     public UserDetailsManager userDetailsManager(DataSource dataSource) {
         JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager();
         jdbcUserDetailsManager.setDataSource(dataSource);
@@ -34,7 +33,7 @@ public class LoginConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public InitializingBean initializer(@Qualifier("loginUserDetailsManager") UserDetailsManager manager) {
+    public InitializingBean initializer(UserDetailsManager userDetailsManager) {
         return () -> {
             UserDetails majdanUserDetails = User.withUsername("radoslaw")
                     .password(passwordEncoder()
@@ -42,7 +41,7 @@ public class LoginConfiguration extends WebSecurityConfigurerAdapter {
                     .roles("USER")
                     .build();
 
-            manager.createUser(majdanUserDetails);
+            userDetailsManager.createUser(majdanUserDetails);
         };
     }
 

@@ -22,8 +22,8 @@ public class AuthController {
 
     @PostMapping(value = "/login", consumes = APPLICATION_JSON_VALUE)
     public String authenticate(@RequestBody CredentialsDto credentialsDto) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(credentialsDto.getUsername(), credentialsDto.getPassword()));
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(credentialsDto.getUsername(),
+                credentialsDto.getPassword()));
 
         return "redirect:login";
     }

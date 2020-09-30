@@ -176,6 +176,7 @@
         <module>oauth2-authentication-github</module>
         <module>login-implementation</module>
         <module>custom-authentication-provider</module>
+        <module>jwt-token-implementation</module>
     </modules>
 
 </project>

@@ -107,10 +107,9 @@
     </build>
 
     <modules>
-        <module>annotation-config</module>
-        <module>java-config</module>
-        <module>xml-config</module>
-        <module>spring-mvc</module>
+        <module>in-memory-user-details-manager</module>
+        <module>jdbc-user-details-manager</module>
+        <module>oauth2-authentication-github</module>
     </modules>
 
 </project>

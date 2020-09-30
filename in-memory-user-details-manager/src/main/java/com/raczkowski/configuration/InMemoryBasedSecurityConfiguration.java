@@ -10,11 +10,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.sql.DataSource;
-
 @Configuration
 @EnableWebSecurity
-public class JdbcSecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class InMemoryBasedSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -22,12 +20,11 @@ public class JdbcSecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth, DataSource dataSource) throws Exception {
-        auth.jdbcAuthentication()
-                .dataSource(dataSource)
-                .withUser("piotr")
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+                .withUser("tomasz")
                 .password(passwordEncoder()
-                        .encode("swierczewski"))
+                        .encode("hajto"))
                 .authorities("ROLE_USER");
     }
 

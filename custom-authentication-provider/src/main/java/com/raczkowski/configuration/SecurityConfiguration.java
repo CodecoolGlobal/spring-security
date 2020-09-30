@@ -12,11 +12,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 @EnableWebSecurity
-public class CustomSecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final AuthenticationProvider customAuthenticationProvider;
 
-    public CustomSecurityConfiguration(CustomAuthenticationProvider customAuthenticationProvider) {
+    public SecurityConfiguration(CustomAuthenticationProvider customAuthenticationProvider) {
         this.customAuthenticationProvider = customAuthenticationProvider;
     }
 

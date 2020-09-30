@@ -18,7 +18,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
-public class LoginConfiguration extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {

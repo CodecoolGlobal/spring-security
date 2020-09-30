@@ -175,6 +175,7 @@
         <module>jdbc-user-details-manager</module>
         <module>oauth2-authentication-github</module>
         <module>login-implementation</module>
+        <module>custom-authentication-provider</module>
     </modules>
 
 </project>

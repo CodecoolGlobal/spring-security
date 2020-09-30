@@ -51,7 +51,6 @@ public class LoginConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/login**")
                 .permitAll()
-
                 .and()
                 .authorizeRequests()
                 .anyRequest()

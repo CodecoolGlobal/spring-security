@@ -25,13 +25,13 @@ public class AuthController {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(credentialsDto.getUsername(),
                 credentialsDto.getPassword()));
 
-        return "redirect:login";
+        return "redirect:success";
     }
 
-    @GetMapping(value = "/login")
+    @GetMapping(value = "/success")
     @ResponseBody
     public String getSuccessfulAuthenticationMessage() {
-        return "Authenticated";
+        return "Successfully authenticated!";
     }
 
     @ExceptionHandler(BadCredentialsException.class)

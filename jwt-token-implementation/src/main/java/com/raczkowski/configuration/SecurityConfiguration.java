@@ -61,6 +61,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .disable()
                 .authorizeRequests()
                 .antMatchers(POST, LOGIN_URL).permitAll()
+                .anyRequest()
+                .authenticated()
                 .and()
                 .addFilter(new JwtAuthenticationFilter(authenticationManagerBean()))
                 .addFilter(new JwtAuthorizationFilter(authenticationManagerBean()))
